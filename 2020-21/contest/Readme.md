@@ -23,7 +23,7 @@
 
 ### Codeshows Practice Contest 4
 * Link : [Codeshows Practice Contest 4](https://www.hackerearth.com/challenges/college/codeshows_practice_4/) 
-* Topics : Arrays
+* Topics : Strings
 * Module : module 4
 * Participants : all years
 * Problem setters : Pranay, Vedant, Vishal, Nandini, Harsha, Kapil and Nitin
