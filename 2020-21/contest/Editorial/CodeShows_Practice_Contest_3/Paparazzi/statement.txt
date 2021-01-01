@@ -1,0 +1,26 @@
+Problem Statement
+
+You are a celebrity going to stay in a hotel. The hotel will open for M days numbered 1...M. There are N people. Each of the i-th person stays from day X[i] to day Y[i], inclusive.
+
+A person will be happy on the days that you and them both stay in the hotel. And their happiness is the total number of days you and them both stay in the hotel.
+
+You can only stay for K consecutive days.
+
+What is the maximum total happiness (over all people) you can achieve?
+
+Input Format
+
+First line contains 3 space separated integers - N, M, K
+Next N lines contains 2 space separated integers - X[i], Y[i], the stay duration of the i-th person
+
+Output Format
+
+Output a single integer, the answer to the problem.
+
+Constraints
+
+1 <= N, M <= 10^5
+1<= X[i], Y[i], K <= M
+X[i] <= Y[i]
+Time Limit: 1s
+Memory Limit: 256MB

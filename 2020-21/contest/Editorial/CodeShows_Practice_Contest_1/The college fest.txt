@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define endl "\n"
+using namespace std;
+vector<bool> isprime(500005, true);
+vector<int> primes;
+
+void init()
+{
+    isprime[0] = false;
+    isprime[1] = false;
+    for (int i = 2; i * i <= 500002; i++)
+    {
+        if (isprime[i])
+        {
+            for (int j = i * i; j <= 500002; j += i)
+            {
+                isprime[j] = false;
+            }
+        }
+    }
+    for (int i = 2; i <= 500002; i++)
+    {
+        if (isprime[i])
+        {
+            primes.push_back(i);
+        }
+    }
+}
+bool solve(ll a, ll b)
+{
+    for (int i = 0; i < primes.size() && primes[i] * primes[i] <= b; i++)
+    {
+        if (b % primes[i] == 0)
+        {
+            int c1 = 0, c2 = 0;
+            while (b % primes[i] == 0)
+            {
+                b /= primes[i];
+                c1++;
+            }
+            ll temp = primes[i];
+            while (temp <= a)
+            {
+                c2 += a / temp;
+                temp *= primes[i];
+            }
+            if (c1 > c2)
+            {
+                // cout << primes[i] << " " << c1 << " " << c2 << endl;
+                return false;
+            }
+        }
+    }
+    if (b != 1 && b > a)
+    {
+        return false;
+    }
+    return true;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    init();
+    int t = 100;
+    cin >> t;
+    while (t--)
+    {
+        ll a, b;
+        cin >> a >> b;
+        if (solve(a, b))
+        {
+            cout << "Congrats" << endl;
+        }
+        else
+        {
+            cout << "Better luck next time" << endl;
+        }
+    }
+
+    return 0;
+}
