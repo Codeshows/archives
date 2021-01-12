@@ -1,0 +1,73 @@
+The Naive Solution :
+For each student look at all students ahead of this student in the queue till you find a junior student and then update the CR's fearfulness . This has a time complexity of O(N^2) .
+
+Using Stacks :
+Start with given queue and an empty stack(of a structure of numbers and their indexes) .
+For each student put him on a stack if the top of stack is not senior to him otherwise pop out as many senior students from the stack as possible ( updating CR's fearfulness at each pop ) and finally push the student on the stack .
+The time complexity of this solution is O(N) .
+
+Example Using Stacks :
+Given the queue , 8 3 7 8 9 12 13 11 3 4
+
+Initialize ans = 1 ; sp = 1000000007
+
+Step One : Stack == [8,1]
+
+Step Two : Stack == [3,2] ( ans *= ( 2 - 1 + 1 ) , ans %= sp => ans = 2 )
+
+Step Three : Stack == [3,2] [7,3] ( ans remains same )
+
+Step Four : Stack == [3,2] [7,3] [8,4] ( ans remains same )
+
+Step Five : Stack == [3,2] [7,3] [8,4] [9,5] ( ans remains same )
+
+Step Six : Stack == [3,2] [7,3] [8,4] [9,5] [12,6] ( ans remains same )
+
+Step Seven : Stack == [3,2] [7,3] [8,4] [9,5] [12,6] [13,7] ( ans remains same )
+
+Step Seven : Stack = [3,2] [7,3] [8,4] [9,5] [11,8] ( Two elements are popped out , ans need to be multiplied by 2 and 3 corresponding to each of pop . So ans = 12 )
+
+Step Eight : Stack == [3,2] [3,9] ( Four elements are popped out . ans need to be multiplied (modularly) by 2 , 5 , 6 , 7 )
+
+Step Nine : Stack == [3,2] [3,9] [4,10] .
+
+Finish and output ans .
+
+//complete code 
+
+#include<bits/stdc++.h>
+#define int long long int
+#define ll long long
+#define M 1000000007
+using namespace std;
+int32_t main()
+{
+    stack<pair<ll,ll>>s;
+    ll x,k,a,i;
+    cin>>x>>k;
+    vector<ll>v;
+    for(i=0;i<x;i++)
+    {
+        cin>>a;
+        v.push_back(a);
+    }
+    s.push(make_pair(v[0],1));
+    ll f=1;
+    for(i=1; i<x; i++)
+    {
+        if(v[i]<s.top().first)
+        {
+            while((s.empty()==false)&&(v[i]<s.top().first))
+            {
+                f = (f*((i+1)-s.top().second+1))%M;
+                s.pop();
+            }
+            s.push(make_pair(v[i],i+1));
+        }
+        else
+        {
+            s.push(make_pair(v[i],i+1));
+        }
+    }
+    cout<<f%M;
+}

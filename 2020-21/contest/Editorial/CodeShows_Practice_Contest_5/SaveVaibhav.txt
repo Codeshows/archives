@@ -1,0 +1,30 @@
+Key points:
+
+Since 1 <= arr[i] <= 10^6, AND of any subarray arr[l..r] would lie in [0, 1048575].
+-> 10^6 = 1111 0100 0010 0100 0000 (20 bits) so maximum AND could be 1111 1111 1111 1111 1111 = 2^20 - 1 = 1048575
+-> Since 0 <= target <= 10^7, -1000000000 (-10^9) would always be farther to target in comparison to AND of any subarray. So we'd never choose l > r and will only be concerned with finding best (l, r) wrt l <= r i.e. finding the closest distance of AND of some subarray to target.
+AND of subarrays starting at an index i are non-increasing (in both left and right directions) i.e. elements of the sequence arr[i], arr[i] & arr[i+1], arr[i] & arr[i+1] & arr[i+2], arr[i] & arr[i+1] & arr[i+2] & arr[i+3], ... either stay the same or decrease.
+-> Taking AND with another element can only change a 1 to 0 (decrease the result) but not change a 0 to 1 (increase the result).
+There can be atmost 2 + log(A[i]) unique numbers in the AND of subarrays starting at an index i.
+-> There are 1 + log(n) bits in binary representation of n.
+-> Each bit can change from 1 to 0 only once so after the first number, there can be 1 + log(n) additional numbers. Hence total unique numbers is given by 2 + log(n). Example: n = 7, 7 (111) -> 3 (011) -> 1 (001) -> 0 (000). size( {7, 3, 1, 0} ) = 4 = 2 + log(7).
+
+int saveVaibhav(vector<int>& arr, int target) {
+        set<int>temp;
+        int n=arr.size();
+        int ans=INT_MAX;
+        for(int i=0;i<n;i++){
+            set<int>c;
+            for(int v:temp){
+                c.insert(v&arr[i]);
+            }
+            c.insert(arr[i]);
+            for(int v:c){
+                ans=min(ans,abs(v-target));
+            }
+            temp=c;
+        }
+        
+        
+        return ans;
+    }
