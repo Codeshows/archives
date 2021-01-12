@@ -1,0 +1,30 @@
+Its time to shop. You have a budget B. You need to buy N ingredients, numbered 1...N. There are M different shops numbered 1...M, which sell these ingredients.
+
+The i-th shop sells the j-th ingredient, at a price P[i][j] and quality Q[i][j].
+
+You are a Master Chef and you know that the quality of a dish is equal to the quality of the lowest quality ingredient.
+
+Therefore, you want to maximize the quality of the ingredient with the lowest quality, while not exceeding your budget.
+
+What is the maximum possible quality?
+
+Input Format
+
+First line contains 3 space separated integers - N, M, B, the number of ingredients, the number of shops, and your budget
+Next there are M blocks, the i-th block representing the i-th shop
+In each block, there are N lines, the j-th line representing the j-th ingredient
+Each line contains two space separated integers - P[i][j], Q[i][j], the price of ingredient j at the i-th shop, and the quality of the ingredient j at the i-th shop.
+
+Output Format
+
+Print the maximum possible quality you can achieve,
+Incase you cannot make any dish with your budget, print -1 instead.
+
+Constraints 
+
+1 <= N <= 1000
+1 <= M <= 1000
+P[i][j], Q[i][j], B <= 10^9
+Time Limit: 1s
+Memory Limit: 256MB
+Warning: Large I/O

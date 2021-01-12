@@ -1,0 +1,1 @@
+You can buy 1st ingredient from Shop 1, and 2nd ingredient from Shop 1. You pay 2 + 3 = 5, and the quality of your dish is 2.
