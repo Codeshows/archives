@@ -1,0 +1,216 @@
+One approach by which we can solve this by maintaining 3 stacks, one for S(i-1)th row, one for the P(i)th and one for the S(i) th row.
+Append the second stack as answer, and make the third stack equal to first stack.
+We are going to stop either if all the q operations are performed, or the first stack becomes empty, whatever occurs first.
+Complexity- O(Q*N)
+
+
+CPP Solution:
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void prime(vector <int> &p)
+
+{
+
+    p.push_back(2);p.push_back(3);
+
+    int j=5;
+
+    while(j<=10000)
+
+    {
+
+        int f=0;
+
+        for(int k=2;k*k<=j;k++)
+
+        {
+
+            if(j%k==0)
+
+            {
+
+                f=1;
+
+                break;
+
+            }
+
+        }
+
+        if(f==0)
+
+            p.push_back(j);
+
+        j=j+1;
+
+    }
+
+}
+
+int main()
+
+{
+
+    int n,q;
+
+    stack <int> s1,s2,s3;
+
+    cin>>n>>q;
+
+    for(int i=0;i<n;i++)
+
+    {
+
+        int p;
+
+        cin>>p;
+
+        s1.push(p);
+
+    }
+
+    vector <int> p;
+
+    prime(p);
+
+    vector <int> ans;
+
+    for(int i=1;i<=q;i++)
+
+    {
+
+        if(s1.empty())
+
+        break;
+
+        while(!s1.empty())
+
+        {
+
+            int x=s1.top();
+
+            s1.pop();
+
+            if(x%p[i-1]==0)
+
+            s2.push(x);
+
+            else
+
+            s3.push(x);
+
+        }
+
+        s1=s3;
+
+        while(!s2.empty())
+
+        {
+
+            ans.push_back(s2.top());
+
+            s2.pop();
+
+        }
+
+        while(!s3.empty())
+
+            s3.pop();
+
+    }
+
+    while(!s1.empty())
+
+    {
+
+        ans.push_back(s1.top());
+
+        s1.pop();
+
+    }
+
+    for(int i=0;i<n;i++)
+
+        cout<<ans[i]<<endl;
+
+    return 0;
+
+}
+
+
+ 
+
+Python 3.8 Solution:
+
+n,q=map(int,input().split())
+
+s1=list(map(int,input().split()))
+
+s2=list()
+
+s3=list()
+
+prime=list()
+
+ans=list()
+
+prime.append(2)
+
+prime.append(3)
+
+for j in range(5,10001):
+
+k=2
+
+f=0
+
+while (k*k<=j):
+
+if j%k==0:
+
+f=1
+
+break
+
+k=k+1
+
+if f==0:
+
+prime.append(j)
+
+for i in range(1,q+1):
+
+if(len(s1)==0):
+
+break
+
+while (len(s1)):
+
+x=s1.pop()
+
+if(x%prime[i-1]==0):
+
+s2.append(x)
+
+else:
+
+s3.append(x)
+
+while(s2!=[]):
+
+ans.append(s2.pop())
+
+s1=[i for i in s3]
+
+s3=[]
+
+while(s1!=[]):
+
+ans.append(s1.pop())
+
+for i in ans:
+
+print(i)
