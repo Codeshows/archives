@@ -28,3 +28,30 @@
 * Participants : all years
 * Problem setters : Pranay, Vedant, Vishal, Nandini, Harsha, Kapil and Nitin
 
+### Codeshows Practice Contest 5
+* Link : [Codeshows Practice Contest 5](https://www.hackerearth.com/challenges/college/biweeklyTest5/) 
+* Topics : Stack, Queue and Bit Manipulation
+* Module : module 5
+* Participants : all years
+* Problem setters : Eshaan, Shubham, Aryan, Sanjana, Pranav, Satya and Tanmay
+
+### Codeshows Practice Contest 6
+* Link : [Codeshows Practice Contest 6](https://www.hackerearth.com/challenges/college/Codeshows_Practice_Contest_6/) 
+* Topics : Trees
+* Module : module 6 and 7
+* Participants : all years
+* Problem setters : Pranay, Vedant, Vishal, Nandini, Harsha, Kapil and Nitin
+
+### Codeshows Practice Contest 7
+* Link : [Codeshows Practice Contest 7](https://www.hackerearth.com/challenges/college/gr5/) 
+* Topics : Graphs
+* Module : module 8
+* Participants : all years
+* Problem setters : Eshaan, Shubham, Aryan, Sanjana, Pranav, Satya and Tanmay
+
+### Codeshows Practice Contest 8
+* Link : [Codeshows Practice Contest 8](https://www.hackerearth.com/challenges/college/codeshows_practice_contest_8/) 
+* Topics : DP
+* Module : module 9
+* Participants : all years
+* Problem setters : Pranay, Vedant, Vishal, Nandini, Harsha, Kapil and Nitin
